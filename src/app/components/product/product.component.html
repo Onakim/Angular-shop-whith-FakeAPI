@@ -5,7 +5,7 @@
     class="border py-2 px-4 rounded bg-yellow-400"
     (click)="details = !details"
   >
-    Show Details
+    {{ details ? "Hide" : "Show" }} Details
   </button>
   <p>
     Price:
