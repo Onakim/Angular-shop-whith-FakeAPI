@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { products as data } from './data/products';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from './models/product';
+import { ProductService } from './survices/product.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,14 @@ import { IProduct } from './models/product';
 })
 export class AppComponent {
   title = 'course-2022';
-  products: IProduct[] = data;
+  products: IProduct[] = [];
+  loading = false;
+  constructor(private productsService: ProductService) {}
+  ngOnInit(): void {
+    this.loading = true;
+    this.productsService.getAll().subscribe((products) => {
+      this.products = products;
+      this.loading = false;
+    });
+  }
 }
