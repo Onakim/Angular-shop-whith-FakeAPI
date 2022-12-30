@@ -2,7 +2,11 @@
   <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2" />
   <h2 class="mb-2 text-md text-center">{{ product.title }}</h2>
   <button
-    class="border py-2 px-4 rounded bg-yellow-400"
+    class="border py-2 px-4 rounded"
+    [ngClass]="{
+      'bg-yellow-400': !details,
+      'bg-blue-400': details
+    }"
     (click)="details = !details"
   >
     {{ details ? "Hide" : "Show" }} Details
