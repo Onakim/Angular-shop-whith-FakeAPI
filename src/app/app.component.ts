@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'course-2022';
   products: IProduct[] = [];
   loading = false;
+  tern: string = '';
   constructor(private productsService: ProductService) {}
   ngOnInit(): void {
     this.loading = true;
