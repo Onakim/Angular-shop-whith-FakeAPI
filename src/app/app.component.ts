@@ -1,27 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IProduct } from './models/product';
-import { ModalService } from './services/modal.service';
-import { ProductService } from './services/product.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'course-2022';
-  products: IProduct[] = [];
-  loading = false;
-  tern: string = '';
-  constructor(
-    public productsService: ProductService,
-    public modalService: ModalService
-  ) {}
-  ngOnInit(): void {
-    this.loading = true;
-    this.productsService.getAll().subscribe((products) => {
-      this.products = products;
-      this.loading = false;
-    });
-  }
-}
+export class AppComponent {}
