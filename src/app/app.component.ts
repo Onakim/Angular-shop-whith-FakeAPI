@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './models/product';
+import { ModalService } from './services/modal.service';
 import { ProductService } from './services/product.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class AppComponent {
   products: IProduct[] = [];
   loading = false;
   tern: string = '';
-  constructor(private productsService: ProductService) {}
+  constructor(
+    public productsService: ProductService,
+    public modalService: ModalService
+  ) {}
   ngOnInit(): void {
     this.loading = true;
     this.productsService.getAll().subscribe((products) => {
